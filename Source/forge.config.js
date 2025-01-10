@@ -4,16 +4,19 @@ const { FuseV1Options, FuseVersion } = require('@electron/fuses');
 module.exports = {
   packagerConfig: {
     asar: true,
+    icon: 'src/img/logo_256x256',
   },
   rebuildConfig: {},
   makers: [
     {
       name: '@electron-forge/maker-squirrel',
-      config: {},
+      config: {
+        setupIcon: 'src/img/logo_256x256.ico',
+        loadingGif:'src/img/loading.gif',
+      },
     },
     {
       name: '@electron-forge/maker-zip',
-      platforms: ['darwin'],
     },
     {
       name: '@electron-forge/maker-deb',
